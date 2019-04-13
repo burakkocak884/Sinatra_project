@@ -1,0 +1,10 @@
+hello new tenants
+<form method="post" action ="">
+  	Please Enter: <input  type = "text" name ="name" placeholder = "name" required>
+  	<input  type = "text" name ="occupation" placeholder = "occupation" required><br>
+  	<br>
+  	Property_id is pre-set for <%= @property.name %><br> 
+  	<input type="hidden" name = "owner_id" value = "<%= @owner.id %>" placeholder = "Owner ID"><br> 
+  	then click on
+  	<input  type = "submit" value ="Create New Tenant">
+  	</form>

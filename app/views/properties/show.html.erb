@@ -1,0 +1,51 @@
+
+
+
+
+<!-- <link rel="stylesheet" href="/stylesheets/main.css" /> -->
+
+<h1>Hello, <%= @owner.username.capitalize %></h1>
+
+<% if @properties.size > 0 %>
+
+<h3>Here is list of your properties</h3>
+
+
+<% i = 1%>
+<% @properties.each do |property| %>
+<h5>##############################################################################################</h5>
+<h1 id = "property"> Property #<%= i  %></h1> 
+<h4>Property Name : <li><h2><a href = "/properties/<%= property.id %>"><%= property.name %></a></h2></li></h4>
+<h4>Propery Location : <li><h3><%= property.location %></h3></li></h4>
+<h5>Property Tenant Capacity : <li><h3><%= property.capacity %></h3></li></h5>
+<% i += 1 %>
+<!-- <h3> <a href = "/remove/<%= @owner.id %>">Remove</a>  </h3> -->
+
+<form action="/remove/<%= property.id %>" method="post">     
+	<input name="_method" type="hidden" value="delete" />     
+	Click here to
+	<input type="submit" value="Delete"> 
+	a property from your account.
+ </form> 
+
+
+<% end %>
+
+
+
+
+<% else %>
+ <h3>You don't have any registered property at the moment.</h3>
+ 
+<% end %>
+<h5>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h5>
+<h3>You can always enter a <a href = "/properties/new"> New Property</a> to manage.</h3>
+
+
+
+
+
+<form method = "post" action ="/logout" >
+	 
+	Click on <input type="submit" value="Sign Out"> to close your session
+</form>

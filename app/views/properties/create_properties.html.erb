@@ -1,0 +1,14 @@
+<h1>Let's create A New Property for <%= @owner.username.capitalize %></h1>
+
+<form method="post" action = "/properties">
+	New Property Name :   <input type="text" name = "name" placeholder = "New Property Name" required><br>
+	<br>
+	Location :   <input type="text" name = "location" placeholder = "Location" required><br>
+	<br>
+	Tenant Capacity :   <input type="text" name = "capacity" placeholder = "TenantCapacity" required><br>
+	<br>
+	Owner_id is pre-set for <%= @owner.username.capitalize %> <input type="hidden" name = "owner_id" value = "<%= @owner.id %>" placeholder = "Owner ID"><br>
+	
+	<br>
+	<input type = "submit" value = "Add New Property">
+	</form>
