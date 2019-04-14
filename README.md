@@ -6,11 +6,12 @@
 
 
 	## Installation
+	 run 
 ```
 	git clone git@github.com:burakkocak884/Sinatra_project.git
 ```
 
-
+in your terminal to install it from GitHub.com
 
 
 
