@@ -1,0 +1,14 @@
+<h4>Let's update the information about your property named :  "<%= @property.name.capitalize%>"</h1>
+
+	<br>
+
+	<form action="/properties/<%= @property.id %>" method = "post">     
+	<input   type="hidden" name="_method" value="patch">  
+Update the name of your property from <%= @property.name.capitalize %> to  > <input type ="text" name = "name" placeholder= "New Name" required><br>
+	<br>
+	Update the location from <%= @property.location.upcase %> to  > <input type ="text" name = "location" placeholder= "New Location" required><br>
+	<br>
+	Update Capacity from <%= @property.capacity %> to  > <input type ="text" name = "capacity" placeholder= "New Capacity" required><br>
+	<br>
+	<input type = "submit" value = "Update">
+</form>
