@@ -16,9 +16,16 @@
 <% @properties.each do |property| %>
 <h5 style = "color: darkgreen;">##############################################################################################</h5>
 <h1 style ="color:gray;"> Property #<%= i  %></h1> 
-<h4>Property Name : <li><h2><a href = "/properties/<%= property.id %>"><%= property.name.capitalize %></a></h2></li></h4>
+<h4>Property Name : <h2><a href = "/properties/<%= property.id %>"><%= property.name.capitalize %></a></h2></h4>
 <h4>Propery Location : <li><h3><%= property.location.upcase %></h3></li></h4>
-<h5>Property Tenant Capacity : <li><h3><%= property.capacity %></h3></li></h5>
+<h5>Property Tenant Capacity : <li><h3 style = "color:blue;" ><%= property.capacity %></h3></li></h5>
+<h5>Number of current tenants : <li><h3 style = "color:blue;"><%= property.tenants.size %></h3></li></h5>
+<% t =  property.tenants.size.to_f %>
+<% c = property.capacity.to_f %>
+
+<h5>Your property is :  <li><h3 style = "color:blue;"><%= ((t / c) * 100).round  %> % occupied.</h3></li></h5>
+
+
 <% i += 1 %>
 <!-- <h3> <a href = "/remove/<%= @owner.id %>">Remove</a>  </h3> -->
 
@@ -37,7 +44,7 @@
 
 
 <% else %>
- <h3 style ="color: red;">You don't have any registered property at the moment.</h3>
+ <h3 style ="color: darkgreen;">You don't have any registered property at the moment.</h3>
  
 <% end %>
 <h5>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h5>
