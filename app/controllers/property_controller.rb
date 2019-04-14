@@ -3,7 +3,7 @@ class PropertyController < ApplicationController
 
 
 
-
+ #list of properties if the user is logged in. 
    get '/properties'  do 
    	   
        if logged_in?
@@ -20,7 +20,7 @@ class PropertyController < ApplicationController
      
       if logged_in?
        @owner = current_user
-       @properties = Property.all
+       # @properties = Property.all
         erb :'/properties/create_properties.html'
        else
        redirect "/login"
@@ -35,7 +35,7 @@ class PropertyController < ApplicationController
       @owner = current_user
       @property = Property.find_by_id(params[:id])
     
-      erb :'/tenants/show.html'
+      erb :'/properties/show_property_details.html'
       else
       redirect "/login"
       end

@@ -1,0 +1,52 @@
+<h1 style = "color: darkorange;">Hello ,<%= @owner.username.capitalize %></h1>
+
+<% if @property && @property.tenants.size > 0 %>
+<h3>Here is list of your <%=  @property.tenants.size %> tenant(s) at <%= @property.name %>.
+ <% @property.tenants.each do|tenant|%>
+ <h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
+
+ <h4>Name  : <h2 style = "color: purple;"><%= tenant.name.capitalize %></h2></h4>
+
+ <br>
+ <h4>Occupation of the Tenant : <h3 style = "color: green;"><%= tenant.occupation.capitalize %></h3></h4>
+ <br>
+ <form action="/remove/<%= tenant.id%>/tenants" method="post">     
+	<input name="_method" type="hidden" value="delete">     
+Click here to
+	<input style = "color: blue;" type="submit" value="Delete"> 
+	the tenant from your account.
+ </form> 
+<br>
+
+<h5>  Click here to <a href = "/tenants/<%= tenant.id %>/edit">Update</a> the information about "<%= tenant.name.capitalize %>".</h5>
+<% end%>
+<h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
+ 
+
+ <% elsif @property %>
+ <h3 style ="color: red;"> You do not have any tenants </h3>
+ <!-- <h2>Would you like to add <a href = "/tenants/<%= @property.id %>">New Tenants</a> to your <%= @property.name %>.</h2> -->
+
+
+ <% end%>
+ 
+ 	<form action="/tenants/<%= @property.id %>" method="post">  
+ 	<input type="text" name ="name" placeholder = "name" required> 
+ 	<input type="text" name ="occupation" placeholder = "occupation" required>   
+ 	<!-- Property_id is pre-set for <%= @property.name.capitalize %> <input type="hidden" name = "property_id" value = "<%= @property.id %>" placeholder = "Property ID"><br> -->
+	
+	 <input type="submit" value="Create New Tenants"> 
+</form>
+ 
+  	<h3>................................................................................................................................................................................................</h3>
+ <form method = "post" action ="/properties" >
+	 
+	~~~~~>>  <input type="submit" value="Back to Properties"> 
+</form>
+
+
+  <form method = "post" action ="/logout" >
+	 
+	~~~~~>>   <input type="submit" value="Sign Out"> 
+</form>
+ 

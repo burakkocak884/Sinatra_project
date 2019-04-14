@@ -1,0 +1,21 @@
+<h2 style ="color: purple;">List of all the tenants associated with <%= @owner.username.capitalize %></h2>
+<h5>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h5>
+<% @owner.properties.each do |property| %>
+	<% property.tenants.each do |tenant| %>
+	<ol>
+	<li style ="color:green;"><%= tenant.name.upcase %></li><br>
+</ol>
+	<% end%>
+	<% end %>
+	<h5>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h5>
+
+
+	<form method = "post" action ="/properties" >
+	 
+	Navigate back to <input type="submit" value="Properties"> 
+</form>
+
+	<form method = "post" action ="/logout" >
+	 
+	Click on <input type="submit" value="Sign Out"> to close your session
+</form>

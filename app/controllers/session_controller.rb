@@ -25,9 +25,24 @@ if owner && owner.authenticate(params["password"])
     
     # erb :'/owners/account.html'
   else 
-    redirect "/login"
+    redirect "/login/retry"
   end
 end
+
+		get "/login/retry" do 
+
+		if logged_in?
+		  redirect '/properties'
+		else
+		erb :'/sessions/login_retry.html'
+		end
+
+		end
+
+
+
+
+
 
 post "/logout" do
 #binding.pry
