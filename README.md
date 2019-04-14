@@ -6,24 +6,24 @@
 
 
 	## Installation
-	 run 
+	In your terminal type in
 ```
 	git clone git@github.com:burakkocak884/Sinatra_project.git
 ```
 
-in your terminal to install it from GitHub.com
+ to install.
 
 
 
 	## Usage
 
-Upon running 'shotgun' in your terminal, open your browser, and insert "http://localhost:9393" (the port number(9393) can be different depends on your operating system). Your terminal will display post number once "shotgun" is ran. Once you insert "http://localhost:9393" into browser's url box, you will be presented a welcome message, and two options ( "log in" or "sign up"). Next step depends on you selection. The app will guide you to diffirent pages. You can sign up to create a user name or log in with an existing user name. Note that, A Valid Email address when signing up and non-existing username/email when logging in are required. Once logged in, you can add your properties in database along with tenants associated with the properties. There will always be options available when desire to update and/or delete properties/tenants.
+Upon running 'rackup config.ru' in your terminal, open your browser, and insert "http://localhost:9292" (the port number(9292) can be different depends on your operating system). Your terminal will display post number once "rackup config.ru" is ran. Once you insert "http://localhost:9292" into browser's url box, you will be presented a welcome message, and two options ( "log in" or "sign up"). Next step depends on you selection. The app will guide you to diffirent pages. You can sign up to create a user name or log in with an existing user name. Note that, A Valid Email address when signing up and non-existing username/email when logging in are required. Once logged in, you can add your properties in database along with tenants associated with the properties. There will always be options available when desire to update and/or delete properties/tenants.
 Have fun managing you rental properties!!!
 
 
 ## Development
 
-After checking out the repo,  You can run `shotgun` in terminal to experience the app on a browser.
+After checking out the repo,  You can run `rackup config.ru` in terminal to experience the app on a browser.
 
 
 
