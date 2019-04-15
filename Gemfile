@@ -13,13 +13,14 @@ gem 'bcrypt'
 gem "tux"
 gem 'sinatra-flash'
 gem 'pg' , '~> 1.1.4'
-gem 'sqlite3' , '~> 1.3.6'
+
 
 
 
 
 
 group :test do
+gem 'sqlite3' , '~> 1.3.6'
 
   gem 'rspec'
   gem 'capybara'
