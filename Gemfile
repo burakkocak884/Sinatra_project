@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem "tux"
 gem 'sinatra-flash'
 gem 'pg' , '~> 1.1.4'
+ruby '2.5.3'
 
 
 
