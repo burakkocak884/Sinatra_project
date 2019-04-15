@@ -17,7 +17,9 @@ gem 'sinatra-flash'
 
 
 
+
 group :test do
+	gem 'pg'
 	gem 'sqlite3' , '~> 1.3.6'
   gem 'rspec'
   gem 'capybara'
