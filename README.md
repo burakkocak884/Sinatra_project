@@ -6,12 +6,37 @@
 
 
 	## Installation
-	In your terminal type in
+Step #1	In your terminal type in
+
 ```
 	git clone git@github.com:burakkocak884/Sinatra_project.git
 ```
 
- to install.
+to install.
+
+
+Step #2 In your terminal
+run 
+
+
+```
+rake db:migrate
+```
+
+
+in order to create a database with Owners, Properties and Tenants tables.
+Step #3(optional)
+ In your terminal 
+
+
+ ```
+ rake db:seed
+ ```
+
+
+ to insert the data provided in seed.db file.
+
+
 
 
 
