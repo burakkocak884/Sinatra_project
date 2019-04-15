@@ -1,20 +1,19 @@
 <h1 style = "color: darkorange;">Hello ,<%= @owner.username.capitalize %></h1>
 
 <% if @property && @property.tenants.size > 0 %>
-<h3>Here is list of your <%=  @property.tenants.size %> tenant(s) at <%= @property.name %>.
+<h3>Here is list of your <%=  @property.tenants.size %> tenant(s) at <%= @property.name.upcase %>.
  <% @property.tenants.each do|tenant|%>
  <h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
 
  <h4>Name  : <h2 style = "color: purple;"><%= tenant.name.capitalize %></h2></h4>
+<h4>Occupation of the Tenant : <h3 style = "color: green;"><%= tenant.occupation.capitalize %></h3></h4>
+ <br><br>
 
- <br>
- <h4>Occupation of the Tenant : <h3 style = "color: green;"><%= tenant.occupation.capitalize %></h3></h4>
- <br>
  <form action="/remove/<%= tenant.id%>/tenants" method="post">     
 	<input name="_method" type="hidden" value="delete">     
 Click here to
 	<input style = "color: blue;" type="submit" value="Delete"> 
-	the tenant from your account.
+	 "<%= tenant.name.capitalize %>"" from your account.
  </form> 
 <br>
 

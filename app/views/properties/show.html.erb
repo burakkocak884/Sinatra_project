@@ -4,7 +4,7 @@
 
 <!-- <link rel="stylesheet" href="/stylesheets/main.css" /> -->
 
-<h1 style = "color: purple;">Hello, <%= @owner.username.capitalize %></h1>
+<h1 style = "color: brown;">Hello, <%= @owner.username.split(" ")[0].capitalize %></h1>
 
 <% if @properties.size > 0 %>
 
@@ -15,7 +15,7 @@
 <% i = 1%>
 <% @properties.each do |property| %>
 <h5 style = "color: darkgreen;">##############################################################################################</h5>
-<h1 style ="color:gray;"> Property #<%= i  %></h1> 
+<h1 style ="color:brown;"> Property #<%= i  %></h1> 
 <h4>Property Name : <h2><a href = "/properties/<%= property.id %>"><%= property.name.capitalize %></a></h2></h4>
 <h4>Propery Location : <li><h3><%= property.location.upcase %></h3></li></h4>
 <h5>Property Tenant Capacity : <li><h3 style = "color:blue;" ><%= property.capacity %></h3></li></h5>

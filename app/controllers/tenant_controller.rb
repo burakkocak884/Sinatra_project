@@ -34,10 +34,17 @@ class TenantController < ApplicationController
 
 
     post '/tenants/:property_id' do 
+      existing_tenant = Tenant.find_by(params)
+      #binding.pry
+      @property_id = params[:property_id]
+      if existing_tenant
+        erb :'/tenants/tenant_error.html'
+      else
  
       @tenant = Tenant.new(params)
       @tenant.save
       redirect "/properties/#{params[:property_id]}"
+    end
       end
   
 
