@@ -1,4 +1,4 @@
-# Reantal Property Management App.
+# Rental Property Management App.
 
 	Welcome to your new gem ,Property Management App, created by Burak KOCAK.
 
