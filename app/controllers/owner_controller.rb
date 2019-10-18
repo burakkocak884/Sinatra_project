@@ -29,8 +29,7 @@ class OwnerController < ApplicationController
 		#binding.pry
 		end
     end
-
-   #username and email not uniq signup form
+	 #username and email not uniq signup form
 	  get "/signup/user/error" do
 	  erb :'owners/create_owner_user_error.html'
 	end
@@ -38,8 +37,6 @@ class OwnerController < ApplicationController
 	 get '/signup/email/error' do
 	 erb :'owners/create_owner_email_error.html'
 	end
-
-
 
 	get '/owner/:owner_id/tenants' do 
 		#binding.pry

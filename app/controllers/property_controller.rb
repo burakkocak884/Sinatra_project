@@ -17,8 +17,7 @@ class PropertyController < ApplicationController
 
 
     get '/properties/new' do
-     
-      if logged_in?
+       if logged_in?
        @owner = current_user
        # @properties = Property.all
         erb :'/properties/create_properties.html'

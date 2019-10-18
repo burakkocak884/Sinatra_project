@@ -3,51 +3,37 @@
 class SessionController < ApplicationController
 
 
-get '/login' do 
-if logged_in?
-  redirect '/properties'
-else
-erb :'sessions/login.html'
-end
+        get '/login' do 
+            if logged_in?
+                redirect '/properties'
+            else
+                erb :'sessions/login.html'
+            end
 
-end
+        end
 
-post '/login' do
-
-owner = Owner.find_by(email: params["email"])
-#binding.pry
-if owner && owner.authenticate(params["password"])
-
-	#binding.pry
-      session[:owner_id] = owner.id
-      #binding.pry
-    redirect '/properties'
-    
-    # erb :'/owners/account.html'
-  else 
-    redirect "/login/retry"
-  end
-end
+      post '/login' do
+            owner = Owner.find_by(email: params["email"])
+          if owner && owner.authenticate(params["password"])
+              session[:owner_id] = owner.id
+              redirect '/properties'
+            else 
+              redirect "/login/retry"
+            end
+      end
 
 		get "/login/retry" do 
+        if logged_in?
+          redirect '/properties'
+        else
+        erb :'/sessions/login_retry.html'
+        end
 
-		if logged_in?
-		  redirect '/properties'
-		else
-		erb :'/sessions/login_retry.html'
 		end
 
-		end
 
-
-
-
-
-
-post "/logout" do
-#binding.pry
-session.clear
-#binding.pry
-redirect "login"
-end
-end
+       post "/logout" do
+         session.clear
+        redirect "login"
+        end
+      end
