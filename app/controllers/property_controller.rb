@@ -103,16 +103,4 @@ class PropertyController < ApplicationController
      @property.save
      redirect "/properties"
   end
-
-
-
-
-
-
-
-
-
-
-
-
 end

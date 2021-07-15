@@ -39,7 +39,6 @@ class OwnerController < ApplicationController
 	end
 
 	get '/owner/:owner_id/tenants' do 
-		#binding.pry
 		if logged_in?
     	 @owner = current_user
      	erb :'/owners/show_owners_all_tenants.html'
@@ -47,5 +46,5 @@ class OwnerController < ApplicationController
  		redirect "/login"
 	end
 end
-#class ends
+
 end
