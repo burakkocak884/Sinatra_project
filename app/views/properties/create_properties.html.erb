@@ -1,15 +1,9 @@
-<h1>Let's create A New Property for <%= @owner.username.capitalize %></h1>
+<h2>Create a Property</h2>
 <div class="form-list">
-<form method="post" action = "/properties">
-	New Property Name :   <input type="text" name = "name" placeholder = "New Property Name" required><br>
-	<br>
-	Location :   <input type="text" name = "location" placeholder = "Location" required><br>
-	<br>
-	Tenant Capacity :   <input type="text" name = "capacity" placeholder = "TenantCapacity" required><br>
-	<br>
-	Owner_id is pre-set for <span style="color:blue"><%= @owner.username.capitalize %><span> <input type="hidden" name = "owner_id" value = "<%= @owner.id %>" placeholder = "Owner ID"><br>
-	
-	<br>
-	<input type = "submit" value = "Add New Property">
+	<form method="post" action = "/properties">
+		<input type="text" name = "name" placeholder = "New Property Name" required><br>
+		<input type="text" name = "location" placeholder = "Location" required><br>
+		<input type="text" name = "capacity" placeholder = "TenantCapacity" required><br>
+		<input class = "btn btn-secondary" type = "submit" value = "Add New Property">
 	</form>
 </div>
