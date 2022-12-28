@@ -31,12 +31,11 @@ class PropertyController < ApplicationController
    get '/properties/:id' do 
     
       if logged_in?
-      @owner = current_user
-      @property = Property.find_by_id(params[:id])
-    
-      erb :'/properties/show_property_details.html'
+        @owner = current_user
+        @property = Property.find_by_id(params[:id])
+        erb :'/properties/show_property_details.html'
       else
-      redirect "/login"
+        redirect "/login"
       end
   end
 

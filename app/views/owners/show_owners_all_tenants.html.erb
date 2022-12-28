@@ -1,29 +1,35 @@
-<h2 style ="color: purple;">List of all the tenants associated with <%= @owner.username.capitalize %></h2>
-<h5>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h5>
+<div style=" float: right; width: auto; display: inline-flex;">
+	<form style = "padding-right: 10px;" method = "post" action ="/properties" >
+		<input class = "btn btn-secondary" type="submit" value="Back to Properties"> 
+	</form>
+	<form method = "post" action ="/logout" >
+		<input class = "btn btn-secondary" type="submit" value="Sign Out">
+	</form>
+</div>
+
+
+<h4 style ="color: purple;">List of all the tenants associated with <%= @owner.username.capitalize %></h4>
 
 	<% i = 1 %>
-<%  @owner.properties.map do |property| %>
 
-<% property.tenants.sort.each do |tenant| %>
-
- <h3 style ="color:green;"><%= i %>. <h4 style = "color: darkblue;"><%= tenant.name.upcase %></h4> <%= tenant.occupation.capitalize %> </h3>
-		<% i += 1 %> 
-
-	<% end%>
-	<% end %>
-	
-
-	
-	
-	<h5>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h5>
-
-
-	<form method = "post" action ="/properties" >
-	 
-	Navigate back to <input type="submit" value="Properties"> 
-</form>
-
-	<form method = "post" action ="/logout" >
-	 
-	Click on <input type="submit" value="Sign Out"> to close your session
-</form>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Name</th>
+				<th scope="col">Type/Occupation</th>
+			</tr>
+		</thead>
+		<tbody>
+		<%  @owner.properties.map do |property| %>
+				<% property.tenants.sort.each do |tenant| %>
+					<tr>
+						<th scope="row"><%= i %></th>
+						<td><%= tenant.name.upcase %></td>
+						<td><%= tenant.occupation.capitalize %></td>
+					</tr>
+					<% i += 1 %> 
+				<% end%>
+		<% end %>
+		</tbody>
+	</table>

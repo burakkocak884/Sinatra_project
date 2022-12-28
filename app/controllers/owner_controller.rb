@@ -9,8 +9,8 @@ class OwnerController < ApplicationController
 #Input from signup form comes in,
 #email gets validated. If not valid, user is directed to signup with an error.
 #Lastly, email and ownername uniquness get validated. if not valid, directed back to signup with an error.
+#binding.pry
 	post '/signup' do
-		#binding.pry
 		existing_owner = Owner.find_by(username: params["username"], email: params["email"])
 		#binding.pry
 		if params["email"].match(URI::MailTo::EMAIL_REGEXP).present?

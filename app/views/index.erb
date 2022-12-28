@@ -1,9 +1,18 @@
 
     <h1>Welcome to Property Management Application</h1>
    
-
+<div style = "float: left; display: inline-flex;">
+    <form action="/signup" method="get">     
+				<input name="_method" type="hidden" value="create" />  
+				<input class = "btn btn-primary" style = "width: auto;" type="submit" value="Sign Up"> 
+     </form>
     
-   <h3>Click on <a href="/signup">Sign Up</a> to create a new account</h3>
-    <br><br>
-    <h3>Click on <a href="/login">Log In</a> to manage your account.</h3><br>
-    <p>For test purposes enter Email: guest@guest.com , Password: password </p>
+    <form action="/login" method="get">     
+				<input name="_method" type="hidden" value="create" />  
+				<input class = "btn btn-primary" style = "width: auto;" type="submit" value="Log In"> 
+     </form>
+</div>
+            <br></br>
+    <div style = "float: left; margin-top: 10px;">
+            <p>For test purposes enter Email: guest@guest.com , Password: password </p>
+    </div>

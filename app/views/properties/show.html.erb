@@ -4,57 +4,88 @@
 
 <!-- <link rel="stylesheet" href="/stylesheets/main.css" /> -->
 
-<h1 style = "color: brown;">Hello, <%= @owner.username.split(" ")[0].capitalize %></h1>
+<div style="float: right; padding:15px 10px; width: auto;display: inline-flex;">
+	<div>
+		<form action="/owner/<%= @owner.id %>/tenants" method="get">     
+			<input name="_method" type="hidden" value="get" />  
+			<input class = "btn btn-secondary" style = "width: auto;" type="submit" value="View List of tenants"> 
+		 </form>
+	</div>	
+	<div style="margin-right: 5px;">
+		<form action="/properties/new" method="get">     
+			<input name="_method" type="hidden" value="add" />  
+			<input class = "btn btn-secondary" style = "width: auto;" type="submit" value="Add a New Property"> 
+		 </form>
+	</div>
+	<div>	
+		<form method = "post" action ="/logout" >
+			<input class = "btn btn-secondary" type="submit" value="Sign Out">
+		</form>
+	</div>
+</div>
+
+
+	<h3>Welcome back, <span class = "badge badge-secondary"><%= @owner.username %></span></h3>
+	 
+
+
 
 <% if @properties.size > 0 %>
 
-<h3>Here is list of your properties.</h3>
-<h3> Click to see <a href = "/owner/<%= @owner.id %>/tenants"> All Tenants</a> associated with your properties.</h3>
+
+	<% i = 1%>
+	<% @properties.each do |property| %>
 
 
-<% i = 1%>
-<% @properties.each do |property| %>
-<h5 style = "color: darkgreen;">##############################################################################################</h5>
-<h1 style ="color:brown;"> Property #<%= i  %></h1> 
-<h4>Property Name : <h2><a href = "/properties/<%= property.id %>"><%= property.name.capitalize %></a></h2></h4>
-<h4>Propery Location : <li><h3><%= property.location.upcase %></h3></li></h4>
-<h5>Property Tenant Capacity : <li><h3 style = "color:blue;" ><%= property.capacity %></h3></li></h5>
-<h5>Number of current tenants : <li><h3 style = "color:blue;"><%= property.tenants.size %></h3></li></h5>
-<% t =  property.tenants.size.to_f %>
-<% c = property.capacity.to_f %>
+	
+	
+	<div class = "property" style = "background-color: #f7fcf2; border-radius: 10px; padding: 30px;margin: 20px 0px;">
+	<div>
+		<h3><a href = "/properties/<%= property.id %>"><%= property.name.capitalize %></a> in <%= property.location.upcase %></h3>
+		<div style = "float: right; display: inline-flex;">
+			<form action="/remove/<%= property.id %>" method="post">     
+				<input name="_method" type="hidden" value="delete" />  
+				<input class = "btn btn-outline-danger" style = "width: auto;" type="submit" value="Delete"> 
+			 </form> 
 
-<h5>Your property is :  <li><h3 style = "color:blue;"><%= ((t / c) * 100).round  %> % occupied.</h3></li></h5>
+			<form action="/properties/<%= property.id %>/edit" method="get">     
+				<input name="_method" type="hidden" value="update" />  
+				<input class = "btn btn-secondary" style = "width: auto;" type="submit" value="Update"> 
+			 </form> 
+		</div>
+	</div>
+			<h4>Capacity : <span style = "color:blue;" ><%= property.capacity %></span>, Number Tenant(s) : <span style = "color:blue;"><%= property.tenants.size %></span></h4>
+			
+			<% t =  property.tenants.size.to_f %>
+			<% c = property.capacity.to_f %>
 
+			<h4>Occupancy Rate at : % <span style = "color:blue;"><%= ((t / c) * 100).round  %></span></h4>
+			
 
-<% i += 1 %>
-<!-- <h3> <a href = "/remove/<%= @owner.id %>">Remove</a>  </h3> -->
-
-<form action="/remove/<%= property.id %>" method="post">     
-	<input name="_method" type="hidden" value="delete" />     
-	<h4>Click here to
-	<input type="submit" value="Delete"> 
-	a property from your account.</h4>
- </form> 
-<h4>  Click here to <a href = "/properties/<%= property.id %>/edit">Update</a> the information about "<%= property.name.capitalize %>" property.</h4>
-
-
+			
+		
+		
+	</div>
+	<% if i != @properties.size %>
+			<div style = "height: 20px;background-color: #e5faac; border-radius: 10px;">
+				<h5 style = "color: darkgreen;background-color: #e5faac; border-radius: 10px;"> </h5>
+			</div>
+	<% end %>
+		<% i += 1 %>
 <% end %>
 
 
 
 
 <% else %>
- <h3 style ="color: darkgreen;">You don't have any registered property at the moment.</h3>
- 
+	<h3 style ="color: darkgreen;">You don't have any registered property at the moment.</h3>
 <% end %>
-<h5>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h5>
-<h3>You can always enter a <a href = "/properties/new"> New Property</a> to manage.</h3>
+
+<div style = "height: 20px;background-color: #ecfae1; border-radius: 10px;">
+</div>
 
 
 
 
 
-<form method = "post" action ="/logout" >
-	 
-	Click on <input type="submit" value="Sign Out"> to close your session
-</form>
+
