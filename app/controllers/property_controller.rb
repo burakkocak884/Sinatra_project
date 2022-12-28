@@ -4,16 +4,15 @@ class PropertyController < ApplicationController
 
 
  #list of properties if the user is logged in. 
-   get '/properties'  do 
-   	   
-       if logged_in?
-   		 @properties = Property.where(owner_id: session[:owner_id])
-   		 @owner = current_user
-   		 erb :'/properties/show.html'
-       else
-   		 redirect "/login"
-   	   end
-   end
+    get '/properties'  do 
+      if logged_in?
+        @properties = Property.where(owner_id: session[:owner_id])
+        @owner = current_user
+        erb :'/properties/show.html'
+      else
+        redirect "/login"
+      end
+    end
 
 
     get '/properties/new' do
@@ -28,15 +27,15 @@ class PropertyController < ApplicationController
 
 
 
-   get '/properties/:id' do 
+  get '/properties/:id' do 
     
-      if logged_in?
-        @owner = current_user
-        @property = Property.find_by_id(params[:id])
-        erb :'/properties/show_property_details.html'
-      else
-        redirect "/login"
-      end
+    if logged_in?
+      @owner = current_user
+      @property = Property.find_by_id(params[:id])
+      erb :'/properties/show_property_details.html'
+    else
+      redirect "/login"
+    end
   end
 
 
@@ -44,13 +43,15 @@ class PropertyController < ApplicationController
      
      @property = Property.new(params)
      session[:user_id] = @property.owner_id
+
      if  @property
-     session[:user_id] = @property.owner_id
-     @property.save
-     redirect "/properties"
+      session[:user_id] = @property.owner_id
+      @property.save
+      redirect "/properties"
      else
-     redirect "/properties/new"
+      redirect "/properties/new"
      end
+
   end
 
 
@@ -82,12 +83,11 @@ class PropertyController < ApplicationController
    get '/properties/:id/edit' do
    
      if logged_in?
-     @owner = current_user
-     @property = Property.find_by_id(params[:id])
-     #binding.pry
-     erb :'/properties/edit_properties.html'
+      @owner = current_user
+      @property = Property.find_by_id(params[:id])
+      erb :'/properties/edit_properties.html'
      else 
-     redirect "/login"
+      redirect "/login"
      end
   end
 
@@ -99,6 +99,7 @@ class PropertyController < ApplicationController
      @property.name = params["name"]
      @property.location = params["location"]
      @property.capacity = params["capacity"]
+     @property.note = params["note"]
      @property.save
      redirect "/properties"
   end

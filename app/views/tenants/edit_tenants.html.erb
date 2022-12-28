@@ -1,12 +1,19 @@
-<h4>Let's update the information about your tenant named :  "<%= @tenant.name.capitalize%>"</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+	<li class="breadcrumb-item"><a href="/properties">Properties</a></li>
+	<li class="breadcrumb-item active">/</li>
+	<li class="breadcrumb-item"><a href="/properties/<%= @property.id %>"><%= @property.name %></a></li>
+	<li class="breadcrumb-item active">/</li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><%= @tenant.name.capitalize %></li>
+  </ol>
+</nav>
 
-	<br>
 
-	<form action="/tenants/<%= @tenant.id %>" method = "post">     
-	<input   type="hidden" name="_method" value="patch">  
-Update the name of your tenant from <%= @tenant.name.capitalize %> to  > <input type ="text" name = "name" placeholder= "New Name" required><br>
-	<br>
-	Update the occupation from <%= @tenant.occupation.upcase %> to  > <input type ="text" name = "occupation" placeholder= "New Occupation" required><br>
-	<br>
+<form action="/tenants/<%= @tenant.id %>" method = "post">     
+	<input type="hidden" name="_method" value="patch">  
+	<input type ="text" name = "name" placeholder= "New Name" value = "<%= @tenant.name.capitalize %>" required><br>
+	<input type ="text" name = "occupation" placeholder= "New Occupation" value = "<%= @tenant.occupation.upcase %>" required><br>
+	<input  type = "text" name ="unitNumber" value = "<%= @tenant.unitNumber %>" placeholder = "Unit Number" required><br>
 	<input type = "submit" value = "Update">
 </form>

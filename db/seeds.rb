@@ -2,6 +2,7 @@ adam = Owner.create(username: "adam", password: "password", email: "adam@adamsli
 jennier = Owner.create(username: "jennifer", password: "password", email: "jen34@jenslive.com")
 ben = Owner.create(username: "ben",password: "password", email: "benjamin@highrise.com")
 rose = Owner.create(username: "rose",password: "password", email: "rosssie@flower.net")
+guest = Owner.create(username: "Guest",password: "password", email: "guest@guest.net")
 
 
 Property.create(name: "Perimeter", location: "Atlanta,GA",  capacity: 15, owner_id: 1)
@@ -11,6 +12,15 @@ Property.create(name: "Park Side", location: "Stone Mountain,GA",  capacity: 14,
 Property.create(name: "Eash Atlanta", location: "Hapeville,GA",  capacity: 25, owner_id: 4)
 Property.create(name: "Outlet", location: "Dawsonville,GA",  capacity: 18, owner_id: 2)
 Property.create(name: "Buckhead", location: "Atlanta,GA",  capacity: 32, owner_id: 3)
+
+Property.create(name: "Perimeter", location: "Atlanta,GA",  capacity: 15, owner_id: 5)
+Property.create(name: "Bay Side", location: "Savannah,GA",  capacity: 12, owner_id: 5)
+Property.create(name: "High Mountain", location: "Blairsville,GA",  capacity: 17, owner_id: 5)
+Property.create(name: "Park Side", location: "Stone Mountain,GA",  capacity: 14, owner_id: 6)
+Property.create(name: "Eash Atlanta", location: "Hapeville,GA",  capacity: 25, owner_id: 7)
+Property.create(name: "Outlet", location: "Dawsonville,GA",  capacity: 18, owner_id: 8)
+Property.create(name: "Buckhead", location: "Atlanta,GA",  capacity: 32, owner_id: 9)
+
 
 
 

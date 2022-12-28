@@ -27,12 +27,14 @@ ActiveRecord::Schema.define(version: 20190410203725) do
     t.string  "location"
     t.integer "capacity"
     t.integer "owner_id"
+    t.string  "note"
   end
 
   create_table "tenants", force: :cascade do |t|
     t.string  "name"
     t.string  "occupation"
     t.integer "property_id"
+    t.integer "unitNumber"
   end
 
 end

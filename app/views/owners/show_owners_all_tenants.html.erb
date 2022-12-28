@@ -18,6 +18,7 @@
 				<th scope="col">#</th>
 				<th scope="col">Name</th>
 				<th scope="col">Type/Occupation</th>
+				<th scope="col">Property</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,6 +28,7 @@
 						<th scope="row"><%= i %></th>
 						<td><%= tenant.name.upcase %></td>
 						<td><%= tenant.occupation.capitalize %></td>
+						<td><%= property.name.capitalize %></td>
 					</tr>
 					<% i += 1 %> 
 				<% end%>

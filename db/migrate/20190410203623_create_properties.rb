@@ -4,8 +4,7 @@ class CreateProperties < ActiveRecord::Migration
   		pro.string :name
   		pro.string :location
   		pro.integer :capacity
-  		pro.integer :owner_id
-  		
+		pro.integer :owner_id
   	end
   end
 end

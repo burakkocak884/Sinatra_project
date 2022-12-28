@@ -4,6 +4,8 @@
 		<input type="text" name = "name" placeholder = "New Property Name" required><br>
 		<input type="text" name = "location" placeholder = "Location" required><br>
 		<input type="text" name = "capacity" placeholder = "TenantCapacity" required><br>
+		<textarea class="form-control" name = "note" rows="3" placeholder = "Notes..."></textarea>
+		<input type="hidden" name = "owner_id" value = "<%= @owner.id %>"><br>
 		<input class = "btn btn-secondary" type = "submit" value = "Add New Property">
 	</form>
 </div>

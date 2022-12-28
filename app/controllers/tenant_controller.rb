@@ -30,6 +30,7 @@ class TenantController < ApplicationController
             session[:user_id] = @tenant.owner_id
             if  @tenant
             session[:user_id] = @tenant.property_id
+            binding.pry
             @tenant.save
             redirect "/tenants"
             else
@@ -66,6 +67,7 @@ class TenantController < ApplicationController
              if logged_in?
               @owner = current_user
               @tenant = Tenant.find_by_id(params[:id])
+              @property = Property.find_by_id(params[:property_id])
               erb :'/tenants/edit_tenants.html'
               else 
               redirect "/login"
@@ -78,6 +80,7 @@ class TenantController < ApplicationController
                 @tenant = Tenant.find_by_id(params[:tenant_id])
                 @tenant.name = params["name"]
                 @tenant.occupation = params["occupation"]
+                @tenant.unitNumber = params["unitNumber"]
                 @tenant.save
               redirect "/properties/#{@tenant.property_id}"
         end

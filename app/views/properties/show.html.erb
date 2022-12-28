@@ -4,7 +4,7 @@
 
 <!-- <link rel="stylesheet" href="/stylesheets/main.css" /> -->
 
-<div style="float: right; padding:15px 10px; width: auto;display: inline-flex;">
+<div style="float: right; padding:15px 0px; width: auto;display: inline-flex;">
 	<div>
 		<form action="/owner/<%= @owner.id %>/tenants" method="get">     
 			<input name="_method" type="hidden" value="get" />  
@@ -59,18 +59,22 @@
 			<% t =  property.tenants.size.to_f %>
 			<% c = property.capacity.to_f %>
 
-			<h4>Occupancy Rate at : % <span style = "color:blue;"><%= ((t / c) * 100).round  %></span></h4>
+			<h4>Occupancy % rate at : <span style = "color:blue;"><%= ((t / c) * 100).round(2)  %></span></h4>
 			
-
+			<div style = "min-height: 40px; color: darkgreen;background-color: #e9eef7; border-radius: 10px;margin:10px 0px;"><p style = "padding: 10px;">  <%= property.note %></p></div>
 			
 		
 		
 	</div>
 	<% if i != @properties.size %>
-			<div style = "height: 20px;background-color: #e5faac; border-radius: 10px;">
+			<div style = "height: 10px;background-color: #e5faac; border-radius: 10px;">
 				<h5 style = "color: darkgreen;background-color: #e5faac; border-radius: 10px;"> </h5>
 			</div>
 	<% end %>
+
+	
+			
+	
 		<% i += 1 %>
 <% end %>
 
@@ -78,7 +82,7 @@
 
 
 <% else %>
-	<h3 style ="color: darkgreen;">You don't have any registered property at the moment.</h3>
+	<h3 style ="color: darkgreen;">You do not have any registered property at the moment.</h3>
 <% end %>
 
 <div style = "height: 20px;background-color: #ecfae1; border-radius: 10px;">

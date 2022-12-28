@@ -20,11 +20,13 @@
 
 	<div class="card" style="width: 28rem; border: 2px solid brown; border-radius: 10px; padding:10px; margin: 40px 0px;">
 		<div class="card-body">
-			<h2 class="card-title"><%= tenant.name %></h2>
+			<h2 class="card-title"><%= tenant.name %><span style = "float: right">Unit : <span style = "color: blue;"><%= tenant.unitNumber %></span></span></h2>
 			<h4 class="card-subtitle mb-2 text-muted"><%= tenant.occupation.capitalize %></h4>
+
 			<div class="car-link" style = "float: right; display: inline-flex;position-top: 5px;">
 				<form action="/tenants/<%= tenant.id %>/edit" method="edit">     
 					<input name="_method" type="hidden" value="edit">  
+					<input name="property_id" type="hidden" value="<%= @property.id%>"> 
 					<input class = "btn btn-secondary" type="submit" value="Update"> 
 				 </form>
 			
@@ -45,13 +47,18 @@
 
 
  <% end%>
+
+ <% if @property.tenants.size != @property.capacity %>
 	<div style="padding:15px 10px; width: auto;display: inline-flex;">
 		<form action="/tenants/<%= @property.id %>" method="post">  
 			<input class="form-control" type="text" name ="name" placeholder = "Name" required> 
 			<input class="form-control" type="text" name ="occupation" placeholder = "Occupation" required> 
+			<input  type = "text" name ="unitNumber" placeholder = "Unit Number" required><br>
+
 			<input class = "btn btn-primary" type="submit" value="Create New Tenants">
 			</form>
 	</div>
+<% end %>
 
 	
  

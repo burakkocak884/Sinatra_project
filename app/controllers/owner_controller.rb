@@ -9,16 +9,13 @@ class OwnerController < ApplicationController
 #Input from signup form comes in,
 #email gets validated. If not valid, user is directed to signup with an error.
 #Lastly, email and ownername uniquness get validated. if not valid, directed back to signup with an error.
-#binding.pry
 	post '/signup' do
 		existing_owner = Owner.find_by(username: params["username"], email: params["email"])
-		#binding.pry
 		if params["email"].match(URI::MailTo::EMAIL_REGEXP).present?
 			if !existing_owner
 			owner = Owner.create(username: params["username"], email: params["email"], password: params["password"])
 		    owner.save
 		    session[:owner_id] = owner.id
-		    #binding.pry
 		    redirect to "/properties"
 			else
 			redirect "/signup/user/error"
@@ -26,7 +23,6 @@ class OwnerController < ApplicationController
 	
 		else
 		redirect "signup/email/error"
-		#binding.pry
 		end
     end
 	 #username and email not uniq signup form
