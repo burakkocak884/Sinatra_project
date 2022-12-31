@@ -12,7 +12,7 @@
 		<label>Name</label> <input type ="text" name = "name"  value = "<%= @property.name.capitalize %> "required><br>
 		<label>Location</label> <input type ="text" name = "location"  value = "<%= @property.location.upcase %>" required><br>
 		<label>Capacity</label> <input type ="text" name = "capacity"  value = "<%= @property.capacity %>" required><br>
-		<label>Note</label> <textarea class="form-control" type ="text" name = "note" rows="2" value = "<%= @property.note %>"></textarea>
+		<label>Note</label> <textarea class="form-control" type ="text" name = "note" rows="3" value = "<%= @property.note %>"><%= @property.note %></textarea>
 		<input type="hidden" name = "owner_id" value = "<%= @property.owner_id %>"><br>
 		<input class = "btn btn-secondary" type = "submit" value = "Update">
 </form>

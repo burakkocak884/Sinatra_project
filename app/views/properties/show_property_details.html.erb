@@ -20,7 +20,7 @@
 
 	<div class="card" style="width: 28rem; border: 2px solid brown; border-radius: 10px; padding:10px; margin: 40px 0px;">
 		<div class="card-body">
-			<h2 class="card-title"><%= tenant.name %><span style = "float: right">Unit : <span style = "color: blue;"><%= tenant.unitNumber %></span></span></h2>
+			<h2 class="card-title"><%= tenant.name.upcase %><span style = "float: right">Unit : <span style = "color: blue;"><%= tenant.unitNumber %></span></span></h2>
 			<h4 class="card-subtitle mb-2 text-muted"><%= tenant.occupation.capitalize %></h4>
 
 			<div class="car-link" style = "float: right; display: inline-flex;position-top: 5px;">
